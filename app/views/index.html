@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dad Jokes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body {
+        background-color: purple;
+      }
+  
+      .jumbotron {
+        background-color: gold;
+      }
+    </style>
+</head>
+<body onload="getRandomJoke()">
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Dad Jokes</h1>
+        <p>Get ready to laugh.</p>
+        <hr class="my-4">
+        <h3 id="joke-question"></h3>
+        <p id="joke-answer"></p>
+        <button class="btn btn-primary" onclick="getRandomJoke()">Get Another Joke</button>
+        <a href="/features/addjoke/addjoke.html" class="btn btn-success">Add a Joke</a>
+        <a href="/features/jokelist/jokelist.html" class="btn btn-info">List all Jokes</a>
+    </div>
+    
+
+    <script>
+        function getRandomJoke() {
+            fetch('/japi/randomjokes')
+                .then(response => response.json())
+                .then(data => {
+                    console.log("hsad", data)
+                    const jokeQuestion = document.getElementById('joke-question')
+                    const jokeAnswer = document.getElementById('joke-answer')
+                    jokeQuestion.textContent = data.question
+                    jokeAnswer.textContent = data.answer
+                })
+                .catch(err => console.log(err));
+        };
+    </script>
+  
+    <footer>
+      <Center>
+      <p><font color="white">&copy; S. Marotta</font></p>
+      </Center>
+    </footer>
+</body>
+</html>
