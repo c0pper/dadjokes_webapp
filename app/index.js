@@ -11,7 +11,7 @@ app.use(express.static(__dirname));
 app.use('/japi', jokeRouter); // Use API routes
 
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PW}@cluster0.0vfcpp8.mongodb.net/jokes?retryWrites=true&w=majority`)
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PW}@cluster0.0vfcpp8.mongodb.net/dadjokes?retryWrites=true&w=majority`)
 const db = mongoose.connection;
 
 db.on('error', (error) => {
