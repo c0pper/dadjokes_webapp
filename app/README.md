@@ -13,7 +13,10 @@
 *Get ready to laugh!*
 
 ## App Purpose
-I built this basic JavaScript app  for learning. 
+I built this basic JavaScript app  for learning how to:
+- Build an API to interact with a database
+- Perform CRUD operations through an API
+- Deploy a web app on a hosting service
 
 
 ## App Architecture
